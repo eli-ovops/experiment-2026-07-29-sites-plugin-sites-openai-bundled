@@ -1,0 +1,97 @@
+schema_version: "1.0"
+status: "draft"
+site_id: "ovops-enterprise-ai"
+project: "OVOPS 原点向量企业 AI 官网原型"
+confirmed_by: "待确认"
+confirmed_at: null
+no_secret_values: true
+
+server:
+  reference: "openai-sites-managed"
+  owner: "OpenAI Sites"
+
+environments:
+  preview:
+    enabled: true
+    public_url: "待 Sites 分配"
+    admin_path: null
+  production:
+    enabled: false
+    public_url: "待确认"
+    admin_path: null
+
+repository:
+  repo_url: "Sites 托管源仓库，创建后登记"
+  approved_branch: "main"
+  production_branch: "main"
+  commit_sha_required: true
+
+architecture: "next"
+
+toolchain:
+  node: ">=22.13.0"
+  pnpm_major: null
+  package_manager: "npm@10.9.2"
+  lockfile: "package-lock.json"
+  payload_version: null
+
+runtime:
+  app_port_reference: "Sites managed"
+  health_port_reference: "Sites deployment status"
+
+deployment:
+  call_carrier: "console"
+  forced_command_reference: null
+  allowed_modes:
+    - "sites-private"
+  guide_reference: "Sites plugin sites-hosting"
+  production_approval_required: true
+  authorization_reference: "当前任务仅授权生成与 Sites 私有托管原型"
+  deploy_owner: "Codex 当前执行线程"
+  validate_required: true
+  status_required: true
+
+storage:
+  code_reference: "Sites source repository"
+  releases_reference: "Sites saved versions"
+  database_reference: "不适用：L0 无数据库"
+  media_reference: "public/ 静态原创素材"
+
+database:
+  type: "other"
+  credential_secret_ref: "不适用"
+  business_data_in_file: false
+
+media:
+  credential_secret_ref: null
+  managed_separately_from_code: true
+
+roles:
+  owner: "待确认"
+  developer: "Codex"
+  server_owner: "OpenAI Sites"
+
+migration:
+  required: false
+  required_for_localization: false
+  procedure_reference: "不适用"
+  production_approval_required: true
+
+backup:
+  procedure_reference: "Sites saved version"
+  database_and_media_separate: true
+  restore_rehearsal_required: false
+
+release_retention:
+  policy_reference: "Sites managed"
+  previous_accepted_release_required: false
+
+health_checks:
+  public_page: "Sites deployment status + route smoke"
+  application: "npm run build"
+  admin: null
+  api: null
+
+rollback:
+  procedure_reference: "重新部署上一 Sites saved version"
+  explicit_authorization_required: true
